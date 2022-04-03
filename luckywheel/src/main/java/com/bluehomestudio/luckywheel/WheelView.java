@@ -56,6 +56,22 @@ final class WheelView extends View {
         //rect rang of the arc
         range = new RectF(padding, padding, padding + radius, padding + radius);
     }
+    public void setItemsColor(List<Integer> listColor)
+    {
+        int indexColor = 0;
+        for(int i = 0 ; i < mWheelItems.size(); i++)
+        {
+            mWheelItems.get(i).setColor(listColor.get(indexColor));
+            if(indexColor < listColor.size() -1)
+            {
+                indexColor += 1;
+            }
+            else
+            {
+                indexColor = 0;
+            }
+        }
+    }
     public void setSpinTime(int time)//time is second
     {
         this.spinTime = time*1000; // spintime is milisecond

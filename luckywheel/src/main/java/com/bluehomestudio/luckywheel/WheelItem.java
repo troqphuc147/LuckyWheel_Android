@@ -22,5 +22,9 @@ public class WheelItem {
         this.bitmap = bitmap;
         this.text = text;
     }
+    public void setColor(int color)
+    {
+        this.color = color;
+    }
 
 }
