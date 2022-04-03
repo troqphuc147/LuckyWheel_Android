@@ -29,6 +29,7 @@ final class WheelView extends View {
     private Paint archPaint, textPaint;
     private int padding, radius, center, mWheelBackground, mImagePadding;
     private List<WheelItem> mWheelItems;
+    private int spinTime ;
     private OnLuckyWheelReachTheTarget mOnLuckyWheelReachTheTarget;
     private OnRotationListener onRotationListener;
 
@@ -49,12 +50,16 @@ final class WheelView extends View {
         textPaint = new Paint();
         textPaint.setColor(Color.WHITE);
         textPaint.setAntiAlias(true);
+        spinTime = 9000;
         textPaint.setDither(true);
         textPaint.setTextSize(30);
         //rect rang of the arc
         range = new RectF(padding, padding, padding + radius, padding + radius);
     }
-
+    public void setSpinTime(int time)//time is second
+    {
+        this.spinTime = time*1000; // spintime is milisecond
+    }
     public void setTextSize(int size)
     {
         this.textPaint.setTextSize(size);
@@ -179,7 +184,7 @@ final class WheelView extends View {
     public void rotateWheelToTarget(int target) {
 
         float wheelItemCenter = 270 - getAngleOfIndexTarget(target) + (360 / mWheelItems.size()) / 2;
-        int DEFAULT_ROTATION_TIME = 9000;
+        int DEFAULT_ROTATION_TIME = spinTime;
         animate().setInterpolator(new DecelerateInterpolator())
                 .setDuration(DEFAULT_ROTATION_TIME)
                 .rotation((360 * 15) + wheelItemCenter)
