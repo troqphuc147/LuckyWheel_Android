@@ -17,6 +17,7 @@ import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,6 +55,20 @@ final class WheelView extends View {
         range = new RectF(padding, padding, padding + radius, padding + radius);
     }
 
+    public void setTextSize(int size)
+    {
+        this.textPaint.setTextSize(size);
+    }
+    public void setSliceRepeat(int num)
+    {
+        List<WheelItem> list = new ArrayList<WheelItem>();
+        list.addAll(mWheelItems);
+        mWheelItems.clear();
+        for(int i = 0 ; i < num ; i++)
+        {
+           mWheelItems.addAll(list);
+        }
+    }
     /**
      * Get the angele of the target
      *
