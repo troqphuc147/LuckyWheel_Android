@@ -36,7 +36,7 @@ The wheel spins for a few seconds, then fires the `setLuckyWheelReachTheTarget` 
  
   ```groovy
   dependencies {
- 		implementation 'com.github.mmoamenn:LuckyWheel_Android:0.3.0'
+ 		    implementation 'com.github.troqphuc147:LuckyWheel_Android:master-SNAPSHOT'
  	}
   ```
  	
