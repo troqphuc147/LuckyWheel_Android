@@ -24,4 +24,20 @@
         android:textColor="@android:color/white"
         android:text="@string/start"/>
 
+    <Button
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/start"
+        android:layout_below="@+id/lwv"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="51dp"
+        android:background="#00E6FF"
+        android:text="Add item"
+        android:textColor="@android:color/white" />
+
 </RelativeLayout>

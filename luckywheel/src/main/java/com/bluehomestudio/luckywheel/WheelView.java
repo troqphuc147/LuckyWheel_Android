@@ -40,7 +40,6 @@ final class WheelView extends View {
     public WheelView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
     private void initComponents() {
         //arc paint object
         archPaint = new Paint();
@@ -96,7 +95,7 @@ final class WheelView extends View {
      * @return Number of angle
      */
     private float getAngleOfIndexTarget(int target) {
-        return (360 / mWheelItems.size()) * target;
+        return ((float)(360 / mWheelItems.size())) * target;
     }
 
     /**

@@ -13,6 +13,7 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -128,7 +129,22 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
         }
         return true;
     }
-
+    public void setItemsColor(List<Integer> listColor)
+    {
+        wheelView.setItemsColor(listColor);
+    }
+    public void setSpinTime(int time)//time is second
+    {
+       wheelView.setSpinTime(time);
+    }
+    public void setTextSize(int size)
+    {
+        wheelView.setTextSize(size);
+    }
+    public void setSliceRepeat(int num)
+    {
+        wheelView.setSliceRepeat(num);
+    }
     @Override
     public void onFinishRotation() {
         isRotate = false;

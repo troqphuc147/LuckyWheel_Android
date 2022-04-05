@@ -48,6 +48,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button add = findViewById(R.id.add);
+        add.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        System.out.println("add");
+                        wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),
+                                R.drawable.chat) , "100 $"));
+                        lw.addWheelItems(wheelItems);
+                        List<Integer> listColor = new ArrayList<Integer>();
+                        listColor.add(Color.parseColor("#FF0000"));
+                        listColor.add(Color.parseColor("#00FF00"));
+                        listColor.add(Color.parseColor("#0000FF"));
+                        listColor.add(Color.parseColor("#FFFF00"));
+                        listColor.add(Color.parseColor("#FF00FF"));
+                        lw.setItemsColor(listColor);
+                    }
+                }
+        );
     }
 
     private void generateWheelItems() {
