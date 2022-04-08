@@ -2,17 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-   >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp">
 
-        <com.bluehomestudio.luckywheel.WheelView
-            android:id="@+id/wv_main_wheel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+   >
+
+    <com.bluehomestudio.luckywheel.WheelView
+        android:id="@+id/wv_main_wheel"
+        android:background="@drawable/shape"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="match_parent" />
 
     <ImageView
         android:id="@+id/iv_arrow"
