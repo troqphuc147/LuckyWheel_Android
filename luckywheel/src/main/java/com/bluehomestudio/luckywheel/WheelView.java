@@ -155,7 +155,7 @@ final class WheelView extends View {
     private void drawImage(Canvas canvas, float tempAngle, Bitmap bitmap) {
         //get every arc img width and angle
         int imgWidth = (radius / mWheelItems.size()) - mImagePadding;
-        float angle = (float) ((tempAngle + 360 / mWheelItems.size() / 2) * Math.PI / 180);
+        float angle = (float) ((tempAngle + 360 / (float)(mWheelItems.size()) / 2) * Math.PI / 180);
         //calculate x and y
         int x = (int) (center + radius / 2 / 2 * Math.cos(angle));
         int y = (int) (center + radius / 2 / 2 * Math.sin(angle));
@@ -270,16 +270,16 @@ final class WheelView extends View {
 
         drawWheelBackground(canvas);
         initComponents();
-
+        float totalSweep = 360;
         float tempAngle = 0;
-        float sweepAngle = 360 / mWheelItems.size();
-
+        float sweepAngle = totalSweep / mWheelItems.size();
         for (int i = 0; i < mWheelItems.size(); i++) {
             archPaint.setColor(mWheelItems.get(i).color);
             canvas.drawArc(range, tempAngle, sweepAngle, true, archPaint);
             drawImage(canvas, tempAngle, mWheelItems.get(i).bitmap);
             drawText(canvas, tempAngle, sweepAngle, mWheelItems.get(i).text == null ? "" : mWheelItems.get(i).text);
             tempAngle += sweepAngle;
+
         }
 
     }
