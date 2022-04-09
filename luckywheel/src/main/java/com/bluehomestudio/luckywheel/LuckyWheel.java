@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
@@ -59,7 +60,7 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.LuckyWheel, 0, 0);
         try {
             int backgroundColor = typedArray.getColor(R.styleable.LuckyWheel_background_color, Color.GREEN);
-            int arrowImage = typedArray.getResourceId(R.styleable.LuckyWheel_arrow_image, R.drawable.arrow);
+            int arrowImage = typedArray.getResourceId(R.styleable.LuckyWheel_arrow_image, R.drawable.ic_dot_with_up_arrow_svgrepo_com);
             int imagePadding = typedArray.getDimensionPixelSize(R.styleable.LuckyWheel_image_padding , 0);
             wheelView.setWheelBackgoundWheel(backgroundColor);
             wheelView.setItemsImagePadding(imagePadding);
