@@ -33,7 +33,6 @@ final class WheelView extends View {
     private int spinTime ;
     private OnLuckyWheelReachTheTarget mOnLuckyWheelReachTheTarget;
     private OnRotationListener onRotationListener;
-    private String textReturn = "textReturn";
 
     public WheelView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -90,10 +89,6 @@ final class WheelView extends View {
         {
            mWheelItems.addAll(list);
         }
-    }
-    public  String getTextReturn()
-    {
-        return textReturn;
     }
     /**
      * Get the angele of the target
@@ -206,13 +201,13 @@ final class WheelView extends View {
      */
     public void rotateWheelToTarget(int target) {
 
-        final float wheelItemCenter = 270 - (360 / mWheelItems.size()) / 2;
+        final float wheelItemCenter = 270 - getAngleOfIndexTarget(6)+ (360 / mWheelItems.size()) / 2;
         int DEFAULT_ROTATION_TIME = spinTime;
         Random random = new Random();
         final int num = random.nextInt(360);
         animate().setInterpolator(new DecelerateInterpolator())
                 .setDuration(DEFAULT_ROTATION_TIME)
-                .rotation((360 * 20)  + wheelItemCenter - num )
+                .rotation((360 * 20)  + wheelItemCenter )
                 .setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
@@ -227,10 +222,6 @@ final class WheelView extends View {
                         if (onRotationListener != null) {
                             onRotationListener.onFinishRotation();
                         }
-                        int index =(int) (num+(360 / mWheelItems.size()) / 2)/(360/mWheelItems.size());
-                        if(index == mWheelItems.size())
-                            index = 0;
-                        textReturn = mWheelItems.get(index).text;
                         clearAnimation();
                     }
 
