@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         lw.setLuckyWheelReachTheTarget(new OnLuckyWheelReachTheTarget() {
             @Override
             public void onReachTarget() {
-                Toast.makeText(MainActivity.this, "Target Reached", Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, lw.getTextReturn(), Toast.LENGTH_LONG).show();
             }
         });
 

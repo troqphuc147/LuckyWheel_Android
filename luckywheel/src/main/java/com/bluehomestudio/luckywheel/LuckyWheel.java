@@ -70,6 +70,10 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
         }
         typedArray.recycle();
     }
+    public  String getTextReturn()
+    {
+        return wheelView.getTextReturn();
+    }
 
     /**
      * Function to set lucky wheel reach the target listener
