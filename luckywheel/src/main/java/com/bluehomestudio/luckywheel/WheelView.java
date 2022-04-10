@@ -201,7 +201,7 @@ final class WheelView extends View {
      */
     public void rotateWheelToTarget(int target) {
 
-        final float wheelItemCenter = 270 - getAngleOfIndexTarget(6)+ (360 / mWheelItems.size()) / 2;
+        final float wheelItemCenter = 270 - getAngleOfIndexTarget(target)+ (360 / mWheelItems.size()) / 2;
         int DEFAULT_ROTATION_TIME = spinTime;
         Random random = new Random();
         final int num = random.nextInt(360);
@@ -211,7 +211,6 @@ final class WheelView extends View {
                 .setListener(new Animator.AnimatorListener() {
                     @Override
                     public void onAnimationStart(Animator animation) {
-
                     }
 
                     @Override
