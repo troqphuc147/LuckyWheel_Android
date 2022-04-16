@@ -15,17 +15,17 @@ import java.util.Objects;
 public class WheelItem implements Serializable {
 
     public int color;
-    public Bitmap bitmap;
+    public CustomBitmap bitmap;
     public String text;
 
     public WheelItem(int color, Bitmap bitmap) {
         this.color = color;
-        this.bitmap = bitmap;
+        this.bitmap = new CustomBitmap(bitmap);
     }
 
     public WheelItem(int color, Bitmap bitmap, String text) {
         this.color = color;
-        this.bitmap = bitmap;
+        this.bitmap = new CustomBitmap(bitmap);
         this.text = text;
     }
     public void setColor(int color)

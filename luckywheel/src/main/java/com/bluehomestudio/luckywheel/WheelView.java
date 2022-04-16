@@ -280,7 +280,7 @@ final class WheelView extends View {
         for (int i = 0; i < mWheelItems.size(); i++) {
             archPaint.setColor(mWheelItems.get(i).color);
             canvas.drawArc(range, tempAngle, sweepAngle, true, archPaint);
-            drawImage(canvas, tempAngle, mWheelItems.get(i).bitmap);
+            drawImage(canvas, tempAngle, mWheelItems.get(i).bitmap.getBitmap());
             drawText(canvas, tempAngle, sweepAngle, mWheelItems.get(i).text == null ? "" : mWheelItems.get(i).text);
             tempAngle += sweepAngle;
 
