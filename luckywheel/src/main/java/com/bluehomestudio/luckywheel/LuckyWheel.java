@@ -118,6 +118,10 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
     {
         return wheelView.getTextSize();
     }
+    public int getSpinTime()
+    {
+        return wheelView.getSpinTime();
+    }
     public void setSliceRepeat(int num)
     {
         wheelView.setSliceRepeat(num);

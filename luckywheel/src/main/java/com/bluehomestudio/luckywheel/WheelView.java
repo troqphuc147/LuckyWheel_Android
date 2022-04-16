@@ -307,4 +307,8 @@ final class WheelView extends View {
     public void setOnRotationListener(OnRotationListener onRotationListener) {
         this.onRotationListener = onRotationListener;
     }
+
+    public int getSpinTime() {
+        return spinTime;
+    }
 }
