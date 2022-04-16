@@ -114,6 +114,10 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
     {
         wheelView.setTextSize(size);
     }
+    public int getTextSize()
+    {
+        return wheelView.getTextSize();
+    }
     public void setSliceRepeat(int num)
     {
         wheelView.setSliceRepeat(num);

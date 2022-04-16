@@ -28,6 +28,7 @@ import java.util.Random;
 final class WheelView extends View {
     private RectF range = new RectF();
     private Paint archPaint, textPaint;
+    private int textSize = 30;
     private int padding, radius, center, mWheelBackground, mImagePadding;
     private List<WheelItem> mWheelItems;
     private int spinTime ;
@@ -52,7 +53,7 @@ final class WheelView extends View {
         textPaint.setAntiAlias(true);
         spinTime = 9000;
         textPaint.setDither(true);
-        textPaint.setTextSize(30);
+        textPaint.setTextSize(textSize);
         //rect rang of the arc
         range = new RectF(padding, padding, padding + radius, padding + radius);
     }
@@ -79,6 +80,9 @@ final class WheelView extends View {
     public void setTextSize(int size)
     {
         this.textPaint.setTextSize(size);
+    }
+    public int getTextSize(){
+        return (int) this.textPaint.getTextSize();
     }
     public void setSliceRepeat(int num)
     {
