@@ -11,6 +11,7 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -31,7 +32,7 @@ final class WheelView extends View {
     private RectF range = new RectF();
     private Paint archPaint, textPaint;
     private int textSize = 36;
-    private int textColor = 0xff1b1b1b;
+    private int textColor = 0xffffffff;
     private int padding, radius, center, mWheelBackground, mImagePadding;
     private List<WheelItem> mWheelItems;
     private int spinTime ;
@@ -201,9 +202,12 @@ final class WheelView extends View {
      * @param sweepAngle current index angle
      * @param text       string to show
      */
-    private void drawText(Canvas canvas, float tempAngle, float sweepAngle, String text) {
+    private void drawText(Canvas canvas, float tempAngle, float sweepAngle, String text, int textColor) {
         Path path = new Path();
         path.addArc(range, tempAngle, sweepAngle);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            textPaint.setLetterSpacing(0.15f);
+        }
         textPaint.setColor(textColor);
         textPaint.setFakeBoldText(true);
         textPaint.setTextSize(textSize);
@@ -299,8 +303,8 @@ final class WheelView extends View {
         for (int i = 0; i < mWheelItems.size(); i++) {
             archPaint.setColor(mWheelItems.get(i).color);
             canvas.drawArc(range, tempAngle, sweepAngle, true, archPaint);
-            drawImage(canvas, tempAngle, mWheelItems.get(i).bitmap.getBitmap());
-            drawText(canvas, tempAngle, sweepAngle, mWheelItems.get(i).text == null ? "" : mWheelItems.get(i).text);
+            //drawImage(canvas, tempAngle, mWheelItems.get(i).bitmap.getBitmap());
+            drawText(canvas, tempAngle, sweepAngle, mWheelItems.get(i).text == null ? "" : mWheelItems.get(i).text, mWheelItems.get(i).textColor);
             tempAngle += sweepAngle;
 
         }

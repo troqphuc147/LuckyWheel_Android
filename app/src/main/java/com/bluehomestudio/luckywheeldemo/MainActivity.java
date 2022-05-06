@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity{
                 Random random = new Random();
                 int selectedIndex = random.nextInt(wheelItems.size()-1);
                 lw.setTarget(selectedIndex+1);
-                lw.setTextSize(100);
+                lw.setTextSize(60);
                 lw.setTextColor(Color.YELLOW);
                 result = wheelItems.get(selectedIndex).text;
                 lw.rotateWheelTo(selectedIndex+1);
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity{
     private void generateWheelItems() {
         wheelItems = new ArrayList<>();
         wheelItems.add(new WheelItem(Color.parseColor("#fc6c6c"), BitmapFactory.decodeResource(getResources(),
-                R.drawable.chat) , "100 $"));
+                R.drawable.chat) , "100 $", 0xffffffff));
         wheelItems.add(new WheelItem(Color.parseColor("#00E6FF"), BitmapFactory.decodeResource(getResources(),
                 R.drawable.coupon) , "0 $"));
         wheelItems.add(new WheelItem(Color.parseColor("#F00E6F"), BitmapFactory.decodeResource(getResources(),
