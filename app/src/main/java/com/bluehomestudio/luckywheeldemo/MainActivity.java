@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity{
                 Random random = new Random();
                 int selectedIndex = random.nextInt(wheelItems.size()-1);
                 lw.setTarget(selectedIndex+1);
+                lw.setTextSize(100);
+                lw.setTextColor(Color.YELLOW);
                 result = wheelItems.get(selectedIndex).text;
                 lw.rotateWheelTo(selectedIndex+1);
             }

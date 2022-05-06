@@ -59,8 +59,8 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
     public void applyAttribute(AttributeSet attrs) {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.LuckyWheel, 0, 0);
         try {
-            int backgroundColor = typedArray.getColor(R.styleable.LuckyWheel_background_color, Color.GREEN);
-            int arrowImage = typedArray.getResourceId(R.styleable.LuckyWheel_arrow_image, R.drawable.ic_dot_with_up_arrow_svgrepo_com);
+            int backgroundColor = typedArray.getColor(R.styleable.LuckyWheel_background_color, 0xff333333);
+            int arrowImage = typedArray.getResourceId(R.styleable.LuckyWheel_arrow_image, R.drawable.ic_lucky_wheel_arrow);
             int imagePadding = typedArray.getDimensionPixelSize(R.styleable.LuckyWheel_image_padding , 0);
             wheelView.setWheelBackgoundWheel(backgroundColor);
             wheelView.setItemsImagePadding(imagePadding);
@@ -114,10 +114,15 @@ public class LuckyWheel extends FrameLayout implements View.OnTouchListener, OnR
     {
         wheelView.setTextSize(size);
     }
+    public void setTextColor(int color)
+    {
+        wheelView.setTextColor(color);
+    }
     public int getTextSize()
     {
         return wheelView.getTextSize();
     }
+    public int getTextColor(int color) { return wheelView.getTextColor(); }
     public int getSpinTime()
     {
         return wheelView.getSpinTime();

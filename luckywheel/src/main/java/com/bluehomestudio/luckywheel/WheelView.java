@@ -10,12 +10,14 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,8 @@ import java.util.Random;
 final class WheelView extends View {
     private RectF range = new RectF();
     private Paint archPaint, textPaint;
-    private int textSize = 30;
+    private int textSize = 36;
+    private int textColor = 0xff1b1b1b;
     private int padding, radius, center, mWheelBackground, mImagePadding;
     private List<WheelItem> mWheelItems;
     private int spinTime ;
@@ -49,7 +52,9 @@ final class WheelView extends View {
         archPaint.setDither(true);
         //text paint object
         textPaint = new Paint();
-        textPaint.setColor(Color.WHITE);
+        Typeface typeface = ResourcesCompat.getFont(getContext(), R.font.be_vietnam_pro);
+        textPaint.setTypeface(typeface);
+        textPaint.setColor(textColor);
         textPaint.setAntiAlias(true);
         spinTime = 9000;
         textPaint.setDither(true);
@@ -79,10 +84,19 @@ final class WheelView extends View {
     }
     public void setTextSize(int size)
     {
-        this.textPaint.setTextSize(size);
+        this.textSize = size;
+        invalidate();
+    }
+    public void setTextColor(int color)
+    {
+        this.textColor = color;
+        invalidate();
     }
     public int getTextSize(){
         return (int) this.textPaint.getTextSize();
+    }
+    public int getTextColor(){
+        return (int) this.textColor;
     }
     public void setSliceRepeat(int num)
     {
@@ -190,8 +204,9 @@ final class WheelView extends View {
     private void drawText(Canvas canvas, float tempAngle, float sweepAngle, String text) {
         Path path = new Path();
         path.addArc(range, tempAngle, sweepAngle);
-        textPaint.setColor(Color.BLACK);
+        textPaint.setColor(textColor);
         textPaint.setFakeBoldText(true);
+        textPaint.setTextSize(textSize);
         float textWidth = textPaint.measureText(text);
         int hOffset = (int) (radius * Math.PI / mWheelItems.size() / 2 - textWidth / 2);
         int vOffset = (radius / 2 / 3) - 3;
@@ -298,7 +313,7 @@ final class WheelView extends View {
 
         int width = Math.min(getMeasuredWidth(), getMeasuredHeight());
         int DEFAULT_PADDING = 5;
-        padding = getPaddingLeft() == 0 ? DEFAULT_PADDING : getPaddingLeft();
+        padding = getPaddingLeft() == 0 ? DEFAULT_PADDING : (int) (getPaddingLeft() * 0.8);
         radius = width - padding * 2;
         center = width / 2;
         setMeasuredDimension(width, width);

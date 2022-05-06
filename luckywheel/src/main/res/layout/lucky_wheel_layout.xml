@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
-            android:src="@drawable/ic_dot_with_up_arrow_svgrepo_com" />
+            android:src="@drawable/ic_lucky_wheel_arrow" />
     </LinearLayout>
 
 </RelativeLayout>
